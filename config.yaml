@@ -8,3 +8,5 @@ buildConfiguration:
       - .npmrc
 livePreviewConfiguration:
   setupCommand: ":"
+authentication:
+  policyName: secure-file-demo
