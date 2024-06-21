@@ -87,10 +87,10 @@ const EntityPage: Template<TemplateRenderProps> = ({
     <>
       <h1>{name}</h1>
       <h4>Non-Secure Rich Text Image</h4>
-      { shortDescriptionV2?.json && <img src={shortDescriptionV2.json?.children[0]?.children[0]?.src}/>}
+      { shortDescriptionV2?.json && <img src={shortDescriptionV2.json?.root.children[0]?.children[0]?.src}/>}
       <br/>
       <h4>Secure Rich Text Image</h4>
-      { c_secureBodyField?.json && <img src={c_secureBodyField.json?.children[0]?.children[1]?.src}/>}
+      { c_secureBodyField?.json && <img src={c_secureBodyField.json?.root.children[0]?.children[1]?.src}/>}
     </>
   );
 };
