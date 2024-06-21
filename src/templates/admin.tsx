@@ -99,7 +99,7 @@ const EntityPage: Template<TemplateRenderProps> = ({
       <h4>Secure Rich Text Image</h4>
       <img src={c_secureBodyField.json?.root.children[0]?.children[1]?.src}/>
       <script>
-        document.getElementById('user').innerHTML = YEXT_AUTH.visitor.email;
+        document.getElementById("user").innerHTML = YEXT_AUTH.visitor.email;
       </script>
     </>
   );
