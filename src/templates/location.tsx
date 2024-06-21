@@ -15,6 +15,7 @@ import {
   TemplateProps,
   TemplateRenderProps,
 } from "@yext/pages";
+import { LexicalRichText } from "@yext/pages-components";
 import * as React from "react";
 import "../index.css";
 
@@ -23,13 +24,13 @@ import "../index.css";
  */
 export const config: TemplateConfig = {
   stream: {
-    $id: "my-stream-id",
+    $id: "secure-files-stream",
     // Specifies the exact data that each generated document will contain. This data is passed in
     // directly as props to the default exported function.
-    fields: ["id", "name", "slug"],
+    fields: ["id", "name", "c_secureBodyField", "shortDescriptionV2"],
     // Defines the scope of entities that qualify for this stream.
     filter: {
-      entityTypes: ["location"],
+      entityTypes: ["helpArticle"],
     },
     // The entity language profiles that documents will be generated for.
     localization: {
@@ -42,14 +43,14 @@ export const config: TemplateConfig = {
  * Defines the path that the generated file will live at for production.
  */
 export const getPath: GetPath<TemplateProps> = ({ document }) => {
-  return document.slug ?? document.name;
+  return `/help/${document.id}`;
 };
 
 /**
  * Defines a list of paths which will redirect to the path created by getPath.
  */
 export const getRedirects: GetRedirects<TemplateProps> = ({ document }) => {
-  return [`index-old/${document.id.toString()}`];
+  return [];
 };
 
 /**
@@ -79,12 +80,15 @@ const EntityPage: Template<TemplateRenderProps> = ({
   path,
   document,
 }) => {
-  const { name } = document;
+  const { name, shortDescriptionV2, c_secureBodyField } = document;
 
   return (
     <>
-      <h1>Entity Powered Page</h1>
-      <div>Entity Name: {name}</div>
+      <h1>{name}</h1>
+      <h4>Non-Secure Rich Text Field</h4>
+      {shortDescriptionV2?.json && <LexicalRichText serializedAst={JSON.stringify(shortDescriptionV2.json)} />}
+      <h4>Secure Rich Text Field</h4>
+      {c_secureBodyField?.json && <LexicalRichText serializedAst={JSON.stringify(c_secureBodyField.json)} />}
     </>
   );
 };
