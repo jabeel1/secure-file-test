@@ -31,6 +31,7 @@ export const config: TemplateConfig = {
     // Defines the scope of entities that qualify for this stream.
     filter: {
       entityTypes: ["helpArticle"],
+      entityIds: ["17665096328731"],
     },
     // The entity language profiles that documents will be generated for.
     localization: {
@@ -43,7 +44,7 @@ export const config: TemplateConfig = {
  * Defines the path that the generated file will live at for production.
  */
 export const getPath: GetPath<TemplateProps> = ({ document }) => {
-  return `/help/${document.id}`;
+  return `/help/faq`;
 };
 
 /**
