@@ -31,7 +31,7 @@ export const config: TemplateConfig = {
  * exported function.
  *
  * This can be used when data needs to be retrieved from an external (non-Knowledge Graph)
- * source. 
+ * source.
  *
  * If the page is truly static this function is not necessary.
  */
@@ -87,13 +87,15 @@ const Static: Template<TemplateRenderProps> = ({
   document,
 }) => {
 
-  // This is the site object from the Knowledge Graph. It contains all the data 
-  // for the site entity, and can be accessed in any template, including static templates. 
+  // This is the site object from the Knowledge Graph. It contains all the data
+  // for the site entity, and can be accessed in any template, including static templates.
   const { _site } = document;
 
   return (
     <>
-      <h1>Static Page</h1>
+      <h1>Secure File Demo</h1>
+      <a href="/faq/help">Secure File Page</a>
+      <a href="/admin/help">Admin Secure File Page</a>
     </>
   );
 };
