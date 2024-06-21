@@ -45,7 +45,7 @@ export const config: TemplateConfig = {
  * Defines the path that the generated file will live at for production.
  */
 export const getPath: GetPath<TemplateProps> = ({ document }) => {
-  return `/admin/help`;
+  return `/secure`;
 };
 
 /**
@@ -90,7 +90,12 @@ const EntityPage: Template<TemplateRenderProps> = ({
 
   return (
     <>
+    <script>
+      document.getElementById('user').innerHTML = YEXT_AUTH.visitor.email;
+    </script>
       <strong>{name}</strong>
+      <strong>Hello <span id="user"></span>!</strong>
+      <p>Below are two images, the first is an insecure link and the second is a secure link. To use this page, the logged in user must be included in the following emails set on the entity.</p>
       <h4>Non-Secure Rich Text Image</h4>
       <img src={shortDescriptionV2.json?.root.children[0]?.children[0]?.src}/>
       <br/>
