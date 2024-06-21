@@ -1,0 +1,8 @@
+{
+    "$id": "secure-file-demo",
+    "$schema": "https://schema.yext.com/config/pages/authentication-policy/v1",
+    "name": "secure-file-demo",
+    "authentication": {
+      "yext": true
+    }
+  }

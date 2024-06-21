@@ -87,9 +87,9 @@ const EntityPage: Template<TemplateRenderProps> = ({
     <>
       <h1>{name}</h1>
       <h4>Non-Secure Rich Text Field</h4>
-      {shortDescriptionV2?.json && <LexicalRichText serializedAst={JSON.stringify(shortDescriptionV2.json)} />}
+      {/* shortDescriptionV2?.json && <LexicalRichText serializedAst={JSON.stringify(shortDescriptionV2.json)} />*/}
       <h4>Secure Rich Text Field</h4>
-      {c_secureBodyField?.json && <LexicalRichText serializedAst={JSON.stringify(c_secureBodyField.json)} />}
+      {/* c_secureBodyField?.json && <LexicalRichText serializedAst={JSON.stringify(c_secureBodyField.json)} /> */}
     </>
   );
 };
