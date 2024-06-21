@@ -94,8 +94,8 @@ const Static: Template<TemplateRenderProps> = ({
   return (
     <>
       <h1>Secure File Demo</h1><br/>
-      <a href="/help/faq">Secure File Page</a><br/>
-      <a href="/admin/help">Admin Secure File Page</a><br/>
+      <strong>Welcome {window?.YEXT_AUTH?.visitor?.email ?? ""}!</strong><br/>
+      <a href="/secure">Secure Page</a><br/>
     </>
   );
 };
