@@ -91,7 +91,7 @@ const EntityPage: Template<TemplateRenderProps> = ({
   return (
     <>
       <strong>{name}</strong><br/>
-      <strong>Hello {window?.YEXT_AUTH?.visitor?.email ?? "missing"}!</strong><br/>
+      <strong>Hello {window?.YEXT_AUTH?.visitor?.given_name ?? ""}!</strong><br/>
       <p>Below are two images, the first is an insecure link and the second is a secure link. To use this page, the logged in user must be included in the following emails set on the entity.</p><br/>
       <h4>Non-Secure Rich Text Image</h4>
       <img src={shortDescriptionV2.json?.root.children[0]?.children[0]?.src}/>

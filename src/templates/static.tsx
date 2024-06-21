@@ -93,9 +93,9 @@ const Static: Template<TemplateRenderProps> = ({
 
   return (
     <>
-      <h1>Secure File Demo</h1>
-      <a href="/faq/help">Secure File Page</a>
-      <a href="/admin/help">Admin Secure File Page</a>
+      <h1>Secure File Demo</h1><br/>
+      <a href="/faq/help">Secure File Page</a><br/>
+      <a href="/admin/help">Admin Secure File Page</a><br/>
     </>
   );
 };
