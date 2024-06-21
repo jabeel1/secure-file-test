@@ -90,17 +90,17 @@ const EntityPage: Template<TemplateRenderProps> = ({
 
   return (
     <>
-    <script>
-      document.getElementById('user').innerHTML = YEXT_AUTH.visitor.email;
-    </script>
-      <strong>{name}</strong>
-      <strong>Hello <span id="user"></span>!</strong>
-      <p>Below are two images, the first is an insecure link and the second is a secure link. To use this page, the logged in user must be included in the following emails set on the entity.</p>
+      <strong>{name}</strong><br/>
+      <strong>Hello <span id="user"></span>!</strong><br/>
+      <p>Below are two images, the first is an insecure link and the second is a secure link. To use this page, the logged in user must be included in the following emails set on the entity.</p><br/>
       <h4>Non-Secure Rich Text Image</h4>
       <img src={shortDescriptionV2.json?.root.children[0]?.children[0]?.src}/>
       <br/>
       <h4>Secure Rich Text Image</h4>
       <img src={c_secureBodyField.json?.root.children[0]?.children[1]?.src}/>
+      <script>
+        document.getElementById('user').innerHTML = YEXT_AUTH.visitor.email;
+      </script>
     </>
   );
 };
