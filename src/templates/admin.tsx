@@ -58,7 +58,7 @@ export const getRedirects: GetRedirects<TemplateProps> = ({ document }) => {
 export const getAuthScope: GetAuthScope<TemplateProps> = ({document}) => {
   // (claims.email in document.externalAuthorizedIdentities)
   // meaning logged in email for Yext Auth is in the list of externalAuthorizedIdentities from the entity.
-  return `(claims.email in [${document.externalAuthorizedIdentities.map((email) => `"${email}"`).join(",")}])`;
+  return `(claims.email in [${document.externalAuthorizedIdentities.map((email) => `${email}`).join(",")}])`;
 }
 
 /**
@@ -96,10 +96,10 @@ const EntityPage: Template<TemplateRenderProps> = ({
       <strong>Hello {window?.YEXT_AUTH?.visitor?.given_name ?? ""}!</strong><br/>
       <p>Below are two images, the first is an insecure link and the second is a secure link. To use this page, the logged in user must be included in the following emails set on the entity.</p><br/>
       <h4>Non-Secure Rich Text Image</h4>
-      <img src={shortDescriptionV2.json?.root.children[0]?.children[0]?.src}/>
+      <LexicalRichText serializedAST={JSON.stringify(shortDescriptionV2.json)} />
       <br/>
       <h4>Secure Rich Text Image</h4>
-      <img src={c_secureBodyField.json?.root.children[0]?.children[1]?.src}/>
+      <LexicalRichText serializedAST={JSON.stringify(c_secureBodyField.json)} />
     </>
   );
 };
