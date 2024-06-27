@@ -58,7 +58,7 @@ export const getRedirects: GetRedirects<TemplateProps> = ({ document }) => {
 export const getAuthScope: GetAuthScope<TemplateProps> = ({document}) => {
   // (claims.email in document.externalAuthorizedIdentities)
   // meaning logged in email for Yext Auth is in the list of externalAuthorizedIdentities from the entity.
-  return `(claims.email in [${document.externalAuthorizedIdentities.map((email) => `${email}`).join(",")}])`;
+  return `(claims.custom_email in [${document.externalAuthorizedIdentities.map((email) => `"${email}"`).join(",")}])`;
 }
 
 /**
